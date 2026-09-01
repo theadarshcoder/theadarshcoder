@@ -14,90 +14,92 @@
 </div>
 
 ```text
-┌── ⚡ SYSTEM TELEMETRY & CORE BENCHMARKS ──────────────────────────────────────────┐
-│  ▸ Order Matching Throughput : ~266,000 orders/sec (P99 latency < 18µs)          │
-│  ▸ Memory Architecture       : O(1) Doubly-Linked FIFO Price-Level Queues        │
-│  ▸ State Replay Invariance   : 309 / 309 Passing (Zero Drift Crash-Safe Ledger)  │
-│  ▸ Open Source Upstream      : pgmpy (Causal AI & Probabilistic Graphical Models)│
+┌── Key Performance & Engineering Metrics ─────────────────────────────────────────┐
+│  • Matching Engine Throughput : ~266,000 orders/sec (P99 execution latency < 18µs) │
+│  • Order Book Queue Model     : O(1) Doubly-Linked FIFO Price Level Queues         │
+│  • Crash Recovery Test Suite  : 309 / 309 Passing (Deterministic State Replay)     │
+│  • Open Source Contributions  : pgmpy (Causal Inference & Probabilistic AI Models) │
 └──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:64ffda,50:38bdf8,100:818cf8&height=2&section=header" width="100%" alt="divider" />
 
-### 🔭 Currently Building
+### Currently Building
 
-| Project | Status | Focus & Architecture |
+| Project | Status | Description |
 | :--- | :---: | :--- |
-| 🏦 **[Trading Simulator & Matching Engine](https://github.com/theadarshcoder)** | `🟢 ACTIVE` | Scaling L2 order-book throughput · building cross-platform React Native client |
-| 🦷 **[Avsar](https://github.com/theadarshcoder/Avsar)** | `🟡 IN PROGRESS` | Hackathon MVP → multi-tenant production SaaS (WhatsApp queues + Razorpay) |
+| **[Trading Simulator & Matching Engine](https://github.com/theadarshcoder)** | `Active` | Scaling L2 order-book throughput and building a cross-platform React Native client. |
+| **[Avsar](https://github.com/theadarshcoder/Avsar)** | `In Progress` | Transitioning cancellation recovery from hackathon prototype to multi-tenant production SaaS. |
 
 <br>
 
-### 🧩 Engineering Challenge — Crash-Safe Order Matching at Scale
+### Engineering Case Study: Deterministic Crash Recovery in Order Matching
 
-> **Context:** High-throughput in-memory order matching engine (`TypeScript`, `Node.js`, `PostgreSQL`).
+**System:** In-Memory Limit Order Book & Matching Engine (`TypeScript`, `Node.js`, `PostgreSQL`)
 
-* **Situation:** The trading simulator's in-memory matching engine needed to survive sudden process crashes without corrupting ledger balances or share holdings — a naive restart could silently double-credit or drop trades during state restoration.
-* **Task:** Guarantee that replaying the event log after an unexpected crash reproduces the exact deterministic account state as before the crash at production throughput.
-* **Action:** 
-  * Architected an immutable `account_adjustments` ledger capturing every discrete balance delta alongside order lifecycle events.
-  * Replayed engine boot state through the exact same live code paths used during normal trading execution.
-  * Implemented an automated conservation fuzzer test asserting total cash and total shares stay invariant after every single transaction.
-* **Result:** Verified durable replay via real child-process tests (not mocks), pushed the test suite to **309 passing tests**, and resolved a benchmarking bottleneck — correcting verified throughput from **~1,767 orders/sec** to **~266,000 orders/sec** across 8 concurrent accounts.
-
-<br>
-
-### 🚀 Highlighted Engineering Projects
-
-#### 🏦 **[High-Throughput Order Matching Engine & Trading Simulator](https://github.com/theadarshcoder)**
-*Deterministic in-memory FIFO limit order book and real-time simulator, benchmarked against exchange throughput.*
-* `TypeScript` · `Node.js` · `PostgreSQL` · `WebSockets`
-* ✅ **~266,000 orders/sec** benchmarked throughput with sub-20µs execution latency
-* ✅ **$O(1)$** doubly-linked price level queues for instant insertion and cancellation
-* ✅ Batched asynchronous ledger persistence to PostgreSQL WAL
+* **Problem:** Under simulated server crashes, a naive restart dropped in-flight fills or double-counted settled trades when replaying the event log from disk.
+* **Objective:** Guarantee that replaying the log after a crash reconstructs the exact pre-crash account state and satisfies global balance conservation.
+* **Implementation:**
+  * Added an append-only `account_adjustments` ledger to persist every credit, debit, and fill event atomically.
+  * Re-architected boot recovery to route replayed log events directly through the core matching pipeline instead of a separate reconciliation script.
+  * Wrote an invariant fuzzer that verifies total cash and total shares remain constant across random process termination points.
+* **Outcome:** Validated crash recovery across child-process test harnesses (309 passing tests). Fixed a benchmarking harness defect that masked true execution throughput, correcting measured performance from ~1,767 orders/sec to **~266,000 orders/sec** across 8 concurrent accounts.
 
 <br>
 
-#### 🦷 **[Avsar — Cancellation-Recovery SaaS](https://github.com/theadarshcoder/Avsar)**
-*Automated revenue-recovery engine for appointment-driven businesses.*
-* `FastAPI` · `MongoDB (Motor)` · `React 18` · `Razorpay` · `Meta Cloud API`
-* ✅ Automates last-minute cancellation broadcasts over WhatsApp Cloud API
-* ✅ Atomic slot reservation guards — zero double-booking under high concurrency
-* ✅ Asynchronous webhook payment verification with cryptographic HMAC SHA-256 signatures
+### Featured Projects
+
+#### **[High-Throughput Order Matching Engine & Trading Simulator](https://github.com/theadarshcoder)**
+*Deterministic in-memory FIFO limit order book and real-time simulator.*  
+`TypeScript` · `Node.js` · `PostgreSQL` · `WebSockets`
+* Benchmarked at **~266,000 orders/sec** with sub-20µs execution latency.
+* Implemented **$O(1)$** price-level queues using doubly linked lists for instant order entry and cancellation.
+* Batched asynchronous ledger persistence to PostgreSQL to keep disk I/O off the critical matching path.
 
 <br>
 
-#### 👁️ **[Vision — AI Exam Governance & Proctoring Platform](https://github.com/theadarshcoder/Ai-secure-exam-browser)**
-*Enterprise-grade, high-integrity remote examination environment.*
-* `React` · `TailwindCSS` · `Framer Motion` · `Socket.IO` · `Judge0`
-* ✅ Full dark/light theming architecture via Context provider with zero layout shift
-* ✅ Delivered institutional demo flow, client-side gaze monitoring, and isolated sandbox grading
+#### **[Avsar — Appointment Cancellation Recovery SaaS](https://github.com/theadarshcoder/Avsar)**
+*Automated slot-recovery system for appointment-driven businesses.*  
+`FastAPI` · `MongoDB (Motor)` · `React 18` · `Razorpay` · `Meta Cloud API`
+* Broadcasts cancellation openings to waitlisted clients via WhatsApp Cloud API.
+* Implements atomic MongoDB reservation locks (`find_one_and_update`) to prevent concurrent double-booking.
+* Reconciles Razorpay payment webhooks with cryptographic HMAC SHA-256 signatures.
 
 <br>
 
-#### 🚍 **[Kerala Mobility — Civic Travel Intelligence (NATPAC)](https://github.com/theadarshcoder/kerala-tourism)**
-*Civic transit intelligence & passive mobility analytics platform for the National Transportation Planning and Research Centre.*
-* `FastAPI` · `Redis` · `React Native` · `PostGIS` · `DBSCAN / ML`
-* ✅ Gov-credible visual system designed for state transit planning and modal split analytics
-* ✅ Shipped full passive GPS telemetry pipeline and 5-second human-in-the-loop trip verification
+#### **[Vision — Remote Exam Proctoring Platform](https://github.com/theadarshcoder/Ai-secure-exam-browser)**
+*Online assessment environment with real-time proctoring and code execution.*  
+`React` · `TailwindCSS` · `Framer Motion` · `Socket.IO` · `Judge0`
+* Real-time browser focus tracking and WebSockets stream handling for proctor oversight.
+* Integrated Judge0 sandbox API for compiling and executing coding submissions against test suites.
+* Context-based theme system supporting seamless dark and light modes.
 
 <br>
 
-### 🛠️ Tech Stack
+#### **[Kerala Mobility Platform](https://github.com/theadarshcoder/kerala-tourism)**
+*Civic transit data platform developed for NATPAC (National Transportation Planning and Research Centre).*  
+`FastAPI` · `Redis` · `React Native` · `PostGIS` · `DBSCAN`
+* Ingestion pipeline using Redis queues to buffer high-frequency GPS pings (30s intervals) from commuter devices.
+* Unsupervised DBSCAN spatial clustering for stop detection paired with a Random Forest transport mode classifier.
+* React Native mobile client for passive trip logging with rapid 5-second trip verification.
 
-| Domain | Stack & Technologies |
+<br>
+
+### Technical Skills
+
+| Domain | Technologies |
 | :--- | :--- |
 | **Languages** | <img src="https://skillicons.dev/icons?i=python,ts,js,cpp,html,css" height="28" alt="Languages" /> |
 | **Frontend & Mobile** | <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,redux,vite" height="28" alt="Frontend" /> |
 | **Backend & Distributed** | <img src="https://skillicons.dev/icons?i=nodejs,fastapi,express" height="28" alt="Backend" /> |
-| **Databases & Cache** | <img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,sqlite" height="28" alt="Databases" /> |
-| **Tools & Cloud** | <img src="https://skillicons.dev/icons?i=docker,git,github,linux,figma,postman" height="28" alt="Tools" /> |
+| **Databases & Storage** | <img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,sqlite" height="28" alt="Databases" /> |
+| **Tools & Infrastructure** | <img src="https://skillicons.dev/icons?i=docker,git,github,linux,figma,postman" height="28" alt="Tools" /> |
 
 <br>
 
-### 🌐 Open Source & Research
+### Open Source
 
-* **Contributor to [`pgmpy`](https://github.com/pgmpy/pgmpy)** — Python library for Causal AI and Probabilistic Graphical Models (Bayesian Networks, Dynamic BNs, DAGs, Structural Equation Models).
+* **Contributor to [`pgmpy`](https://github.com/pgmpy/pgmpy)** — Python library for Causal Inference and Probabilistic Graphical Models (Bayesian Networks, Dynamic BNs, Structural Equation Models).
 
 <br>
 
