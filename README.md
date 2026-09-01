@@ -14,6 +14,13 @@
 
 ---
 
+### ⚡ Currently Building
+
+* **[Trading Simulator & Matching Engine](https://github.com/theadarshcoder)** — Scaling the matching engine architecture and building a cross-platform React Native mobile client.
+* **[Avsar](https://github.com/theadarshcoder/Avsar)** — Transitioning the cancellation-recovery platform from a hackathon MVP into a multi-tenant production SaaS.
+
+---
+
 ### 🚀 Highlighted Projects
 
 * **[High-Throughput Order Matching Engine & Trading Simulator](https://github.com/theadarshcoder)**  
@@ -38,6 +45,20 @@
   `UI/UX` · `Google Stitch` · `React Native` · `FastAPI`
   - Gov-credible visual system
   - Full flow set shipped
+
+---
+
+### 🔬 Engineering Challenge: Crash-Safe Account State Replay
+
+**Context:** [High-Throughput Trading Simulator](https://github.com/theadarshcoder)
+
+* **Situation:** Under process crash and recovery scenarios, a naive sequential restart risked double-crediting balances or dropping trade events during state restoration.
+* **Task:** Ensure deterministic, crash-safe replay of account state and strict balance conservation across engine restarts without data corruption.
+* **Action:**
+  * Implemented an immutable `account_adjustments` ledger to capture discrete balance transitions.
+  * Re-architected boot-time state replay to execute through the identical live execution code paths used during active trading.
+  * Built a conservation fuzzer test suite to continuously validate balance invariant preservation across simulated crash cycles.
+* **Result:** Achieved **309 passing tests** across the test suite with zero state drift. In addition, resolved a benchmarking harness issue, correcting verified throughput from **~1,767 orders/sec** to **~266,000 orders/sec** across 8 concurrent accounts.
 
 ---
 
