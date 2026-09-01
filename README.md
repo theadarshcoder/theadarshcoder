@@ -1,52 +1,81 @@
-# Adarsh Pratap Singh
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b192c,100:1e3e62&height=180&section=header&text=Adarsh%20Pratap%20Singh&fontSize=42&fontColor=ffffff&animation=fadeIn" width="100%" alt="Adarsh Pratap Singh" />
+  
+  <a href="https://github.com/theadarshcoder">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&lines=Systems+%26+Full-Stack+Engineer;Open+Source+Contributor+(pgmpy);Founder" alt="Typing Tagline" />
+  </a>
 
-**Systems & Full-Stack Engineer** · Open Source Contributor (**pgmpy**) · Founder
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Adarsh_Pratap_Singh-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/adarsh-pratap-singh-912539331/)
-[![Email](https://img.shields.io/badge/Email-adarshexclusivemain%40gmail.com-D14836?style=flat-square&logo=gmail)](mailto:adarshexclusivemain@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-theadarshcoder-181717?style=flat-square&logo=github)](https://github.com/theadarshcoder)
+  <p align="center">
+    <a href="https://www.linkedin.com/in/adarsh-pratap-singh-912539331/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>&nbsp;
+    <a href="mailto:adarshexclusivemain@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>&nbsp;
+    <a href="https://github.com/theadarshcoder"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
+  </p>
+</div>
 
 ---
 
-### 🚀 Highlighted Engineering Projects
+### 🚀 Highlighted Projects
 
 * **[High-Throughput Order Matching Engine & Trading Simulator](https://github.com/theadarshcoder)**  
-  *Deterministic in-memory FIFO limit order book and real-time simulator.*  
-  `TypeScript` · `Node.js` · `PostgreSQL` · `WebSockets`  
-  - Benchmarked at **~266,000 orders/sec** with sub-20μs execution latency.
-  - Implements $O(1)$ doubly-linked price level queues and batched asynchronous ledger persistence.
+  `TypeScript` · `Node.js` · `PostgreSQL` · `WebSockets`
+  - ~266,000 orders/sec benchmarked throughput
+  - Sub-20µs execution latency
+  - $O(1)$ doubly-linked price level queues
+  - Batched async ledger persistence
 
 * **[Avsar — Cancellation-Recovery SaaS](https://github.com/theadarshcoder/Avsar)**  
-  *Automated revenue-recovery engine for appointment-driven businesses.*  
-  `FastAPI` · `MongoDB (Motor)` · `React 18` · `Razorpay` · `Meta Cloud API`  
-  - Automates last-minute cancellation broadcasts over WhatsApp with atomic slot reservation guards.
-  - Features asynchronous webhook payment verification with cryptographic HMAC SHA-256 signatures.
+  `FastAPI` · `MongoDB (Motor)` · `React 18` · `Razorpay` · `Meta Cloud API`
+  - WhatsApp cancellation broadcasts
+  - Atomic slot reservation guards
+  - HMAC SHA-256 webhook verification
 
-* **[VISION — AI Exam Governance & Proctoring Platform](https://github.com/theadarshcoder/Ai-secure-exam-browser)**  
-  *Enterprise-grade high-integrity remote examination environment.*  
-  `React` · `Node.js / Express` · `Socket.IO` · `TailwindCSS` · `Judge0 API`  
-  - Low-latency event streaming for browser lockdown, fullscreen governance, and edge computer vision anomaly detection.
-  - Isolated code compilation and automated grading pipeline via sandbox container runners.
+* **[Vision — AI Exam Governance & Proctoring Platform](https://github.com/theadarshcoder/Ai-secure-exam-browser)**  
+  `React` · `Tailwind` · `Framer Motion`
+  - Full dark/light theming architecture via Context provider
+  - Institutional demo/pitch delivery
 
-* **[Kerala Mobility — Civic Transit & Multi-Modal Route Explorer](https://github.com/theadarshcoder/kerala-tourism)**  
-  *Civic mobile transit application built for state transport schedules.*  
-  `React Native` · `Expo` · `NativeWind v4` · `TypeScript` · `React Navigation`  
-  - Zero-overhead native styling with NativeWind v4 and local offline schedule caching for low-connectivity rural zones.
-
----
-
-### 🛠️ Technical Stack & Tools
-
-```
-Languages:        TypeScript, JavaScript (ES6+), Python, SQL
-Backend:          Node.js, Express, FastAPI, WebSockets (Socket.IO), REST APIs
-Databases:        PostgreSQL, MongoDB (Motor), Redis, SQLite
-Frontend/Mobile:  React, Next.js, React Native (Expo), Tailwind CSS, NativeWind, Framer Motion, Three.js
-Systems/DevOps:   Docker, Git, Linux, CI/CD, Judge0 Sandbox, Payment Gateways
-```
+* **[Kerala Mobility — Civic Travel Intelligence for NATPAC](https://github.com/theadarshcoder/kerala-tourism)**  
+  `UI/UX` · `Google Stitch` · `React Native` · `FastAPI`
+  - Gov-credible visual system
+  - Full flow set shipped
 
 ---
 
-### 🌐 Open Source & Research
+### 🛠️ Tech Stack
 
-* **Contributor to [`pgmpy`](https://github.com/pgmpy/pgmpy)** — Python library for Causal Inference and Probabilistic Graphical Models (Bayesian Networks, DAGs, Structural Equation Models).
+#### Languages
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=ts,js,py,html,css" alt="Languages" />
+</a>
+
+#### Frontend
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,redux,vite" alt="Frontend" />
+</a>
+
+#### Backend
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=nodejs,express,fastapi" alt="Backend" />
+</a>
+
+#### Databases
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,sqlite" alt="Databases" />
+</a>
+
+#### Tools
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=docker,git,github,linux,figma,postman" alt="Tools" />
+</a>
+
+---
+
+### 🌐 Open Source
+
+* **Contributor to [`pgmpy`](https://github.com/pgmpy/pgmpy)** — Python library for Causal AI and Probabilistic Graphical Models (Bayesian Networks, DAGs, Structural Equation Models).
+
+---
+
+<div align="center">
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=theadarshcoder&show_icons=true&theme=tokyonight&count_private=true&hide_border=true" alt="Adarsh's GitHub Stats" />
+</div>
