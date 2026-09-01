@@ -2,7 +2,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a192f,50:112240,100:020c1b&height=200&section=header&text=Adarsh%20Pratap%20Singh&fontSize=42&fontColor=64ffda&animation=fadeIn&fontAlignY=38" width="100%" alt="Adarsh Pratap Singh" />
 
   <a href="https://github.com/theadarshcoder">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2800&pause=900&color=64FFDA&center=true&vCenter=true&width=650&lines=%24+whoami+%E2%86%92+Systems+%26+Full-Stack+Engineer;%3E+Core+Contributor+%40+pgmpy+(Causal+AI);%3E+Benchmarked+~266k+orders%2Fsec+Matching+Engine;%3E+Founder+%40+Avsar+SaaS+%26+Kerala+Mobility+Platform" alt="Dynamic Terminal Prompt" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=64FFDA&center=true&vCenter=true&width=750&lines=Systems+%26+Full-Stack+Engineer+%C2%B7+Contributor+%40+pgmpy+%C2%B7+Founder" alt="Tagline" />
   </a>
 
   <p align="center">
